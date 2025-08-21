@@ -25,7 +25,7 @@ const ChatBubbleSVG = ({ children, className = '' }: ChatBubbleSVGProps) => {
 	return (
 		<div className={`relative ${className}`}>
 			{/* SVG 말풍선 */}
-			<svg width='257' height='181' viewBox='0 0 257 181' fill='none' xmlns='http://www.w3.org/2000/svg' className='w-64 h-auto'>
+			<svg width='257' height='181' viewBox='0 0 257 181' fill='none' xmlns='http://www.w3.org/2000/svg' className='w-78 h-auto'>
 				<g filter='url(#filter0_d_1_732)'>
 					<path
 						d='M128.5 159C187.871 159 236 133.033 236 101C236 68.9675 187.871 43 128.5 43C116.848 43 105.629 44.0005 95.1211 45.8506C90.008 36.8302 87.9444 25.9673 87.5576 20C85.3231 29.0514 85.4847 40.0138 86.1475 47.6758C47.8352 56.5452 21 77.0814 21 101C21 133.033 69.1294 159 128.5 159Z'

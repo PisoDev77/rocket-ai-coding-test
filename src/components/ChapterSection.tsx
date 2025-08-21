@@ -54,23 +54,24 @@ const ChapterSection = () => {
 	});
 
 	return (
-		<section className='min-h-screen w-full flex flex-col items-center bg-gray-50 px-4'>
+		<section className='w-full flex flex-col items-center bg-gray-50 px-4' style={{ minHeight: 'max(100vh, 600px)' }}>
 			<div
-				className='w-full max-w-md mx-auto min-h-screen flex flex-col relative'
+				className='w-full max-w-md mx-auto flex flex-col relative'
 				style={{
+					minHeight: 'max(100vh, 600px)',
 					backgroundImage: 'url(/images/chapter-bg.png)',
 					backgroundSize: 'cover',
 					backgroundPosition: 'center',
 					backgroundRepeat: 'no-repeat',
-					backgroundColor: '#F5F3EC'
+					backgroundColor: '#F5F3EC',
 				}}>
 				{/* 배경 오버레이 효과 */}
 				<div className='absolute inset-0 bg-black/20' />
 
 				{/* 상단 텍스트 영역 */}
-				<div className='relative z-10 text-center pt-32 space-y-12 mt-21'>
+				<div className='relative z-10 text-center space-y-12 top-20 flex flex-col gap-4'>
 					{/* 제 1장 */}
-					<div className='min-h-[60px] flex items-center justify-center'>
+					<div className='flex items-center justify-center'>
 						<motion.h1
 							ref={titleAnimation.ref}
 							initial={titleAnimation.initial}
@@ -81,14 +82,14 @@ const ChapterSection = () => {
 					</div>
 
 					{/* 장식용 띠 */}
-					<div className='min-h-[40px] flex items-center justify-center'>
+					<div className='flex items-center justify-center'>
 						<motion.div ref={bandAnimation.ref} initial={bandAnimation.initial} animate={bandAnimation.animate}>
 							<DecorativeBand />
 						</motion.div>
 					</div>
 
 					{/* 나의 사주팔자 */}
-					<div className='min-h-[80px] flex items-center justify-center'>
+					<div className='flex items-center justify-center'>
 						<motion.h2
 							ref={subtitleAnimation.ref}
 							initial={subtitleAnimation.initial}

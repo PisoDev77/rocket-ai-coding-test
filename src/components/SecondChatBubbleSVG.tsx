@@ -25,7 +25,7 @@ const SecondChatBubbleSVG = ({ children, className = '' }: SecondChatBubbleSVGPr
 	return (
 		<div className={`relative ${className}`}>
 			{/* SVG 말풍선 */}
-			<svg width='281' height='181' viewBox='0 0 281 181' fill='none' xmlns='http://www.w3.org/2000/svg' className='w-64 h-auto'>
+			<svg width='281' height='181' viewBox='0 0 281 181' fill='none' xmlns='http://www.w3.org/2000/svg' className='w-78 h-auto'>
 				<g filter='url(#filter0_d_1_120)'>
 					<path
 						d='M113.107 158.78C110.574 153.595 107.132 143.676 106.861 133.67C117.532 135.186 128.821 136 140.501 136C206.5 136 260.003 110.032 260.003 77.9999C260.003 45.9674 206.5 19.9999 140.501 19.9999C74.5025 20 21.0001 45.9675 21 77.9999C21 102.511 52.3279 123.471 96.6104 131.963C99.4997 138.879 105.516 150.813 113.107 158.78Z'
