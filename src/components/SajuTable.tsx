@@ -38,7 +38,7 @@ const SajuTable = observer(() => {
 	const gridClass = `grid-cols-${columnCount}`;
 
 	return (
-		<motion.div ref={tableAnimation.ref} initial={tableAnimation.initial} animate={tableAnimation.animate} className='w-full m-4 relative -top-32'>
+		<motion.div ref={tableAnimation.ref} initial={tableAnimation.initial} animate={tableAnimation.animate} className='w-full px-2 relative'>
 			{/* 외부 박스 - 두꺼운 검은 테두리 */}
 			<div className='relative' style={{ padding: '8px', margin: '8px' }}>
 				{/* 내부 장식 박스 - 얇은 남색 테두리 */}
@@ -71,12 +71,14 @@ const SajuTable = observer(() => {
 							<div className='w-14 h-auto flex items-center justify-center'>
 								<img src='/images/left-decoration.svg' alt='왼쪽 장식' className='w-full h-full object-contain' />
 							</div>
-							<h3 className='text-lg font-bold text-gray-800'>{data.birthInfo.title}</h3>
-							<div className='w-14 h-auto flex items-center justify-center relative -top-5'>
+							<h3 className='font-bold text-gray-800' style={{ fontSize: 'min(4.5vw, 18px)' }}>
+								{data.birthInfo.title}
+							</h3>
+							<div className='w-10 h-auto flex items-center justify-center relative -mt-2'>
 								<img src='/images/right-decoration.svg' alt='오른쪽 장식' className='w-full h-full object-contain' />
 							</div>
 						</div>
-						<p className='text-base font-medium text-gray-800 mb-1'>
+						<p className='font-medium text-gray-800 mb-1' style={{ fontSize: 'min(4vw, 16px)' }}>
 							{data.birthInfo.date} {data.birthInfo.time}
 						</p>
 					</div>
@@ -86,7 +88,10 @@ const SajuTable = observer(() => {
 						<div className={`grid grid-cols-5 border-b-2 border-gray-800`} style={{ inset: '0 6px' }}>
 							<div className='border-r-2 py-2 text-center text-sm font-bold flex items-center justify-center'></div>
 							{data.headers.map((header, index) => (
-								<div key={header} className={`border-r-2 border-gray-800 py-2 text-center text-sm font-bold flex items-center justify-center`}>
+								<div
+									key={header}
+									className={`border-r-2 border-gray-800 py-2 text-center font-bold flex items-center justify-center`}
+									style={{ fontSize: 'min(4vw, 16px)' }}>
 									{header}
 								</div>
 							))}
@@ -97,9 +102,8 @@ const SajuTable = observer(() => {
 							<div key={rowIndex} className={`grid grid-cols-5 border-b border-gray-800`}>
 								{/* 행 라벨 */}
 								<div
-									className={`border-r-2 ${
-										rowIndex === 1 ? '' : 'border-b-2'
-									} border-gray-800 py-3 px-2 text-center text-sm text-gray-600 bg-gray-50 flex items-center justify-center`}>
+									className={`border-r-2 ${rowIndex === 1 ? '' : 'border-b-2'} border-gray-800 py-2 px-1 text-center flex items-center justify-center`}
+									style={{ fontSize: 'min(3.5vw, 14px)' }}>
 									{data.rowLabels[rowIndex].text}
 									<br />({data.rowLabels[rowIndex].subText})
 								</div>
@@ -108,9 +112,8 @@ const SajuTable = observer(() => {
 								{row.map((cell, cellIndex) => (
 									<div
 										key={cellIndex}
-										className={`${
-											rowIndex === 1 ? '' : 'border-b-2'
-										} border-r-1 border-gray-800 py-4 px-3 text-center text-sm flex items-center justify-center min-h-20`}>
+										className={`${rowIndex === 1 ? '' : 'border-b-2'} border-r-1 border-gray-800 text-center flex items-center justify-center min-h-16`}
+										style={{ fontSize: 'min(3.5vw, 14px)' }}>
 										{/* 천간/지지 행인 경우 PillarElement 사용 */}
 										{rowIndex === 1 || rowIndex === 2 ? (
 											<PillarElement text={cell.text} subText={cell.subText} detail={cell.detail || ''} colorClass={cell.colorClass || ''} />
@@ -119,14 +122,24 @@ const SajuTable = observer(() => {
 												{cell.multiItems ? (
 													cell.multiItems.map((item, idx) => (
 														<div key={idx} className='mb-1'>
-															<div className='text-sm font-medium'>{item.text}</div>
-															<div className='text-xs text-gray-600'>({item.subText})</div>
+															<div className='font-medium' style={{ fontSize: 'min(3.5vw, 14px)' }}>
+																{item.text}
+															</div>
+															<div className='text-gray-600' style={{ fontSize: 'min(3vw, 12px)' }}>
+																({item.subText})
+															</div>
 														</div>
 													))
 												) : (
 													<>
-														<div className='text-sm font-medium'>{cell.text}</div>
-														{cell.subText && <div className='text-xs text-gray-600'>({cell.subText})</div>}
+														<div className='font-medium' style={{ fontSize: 'min(3.5vw, 14px)' }}>
+															{cell.text}
+														</div>
+														{cell.subText && (
+															<div className='text-gray-600' style={{ fontSize: 'min(3vw, 12px)' }}>
+																({cell.subText})
+															</div>
+														)}
 													</>
 												)}
 											</div>

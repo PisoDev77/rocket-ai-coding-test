@@ -38,10 +38,19 @@ const PillarElement = ({ text, subText, detail, colorClass }: PillarElementProps
 	}[colorClass];
 
 	return (
-		<div className='w-16 h-16 mx-auto rounded-2xl text-white flex flex-col items-center justify-center font-bold p-2' style={dynamicStyle}>
-			<div className='text-xs'>{detail}</div>
-			<div className='text-lg'>{text}</div>
-			<div className='text-2xs leading-tight'>{subText}</div>
+		<div
+			className='rounded-xl text-white flex flex-col items-center justify-center font-bold'
+			style={{
+				...dynamicStyle,
+				width: 'min(14vw, 58px)',
+				height: 'min(14vw, 58px)',
+				margin: 'min(1.5vw, 8px)',
+			}}>
+			<div style={{ fontSize: 'min(2.2vw, 10px)' }}>{detail}</div>
+			<div style={{ fontSize: 'min(4vw, 18px)' }}>{text}</div>
+			<div style={{ fontSize: 'min(2.2vw, 10px)' }} className='leading-tight'>
+				{subText}
+			</div>
 		</div>
 	);
 };
