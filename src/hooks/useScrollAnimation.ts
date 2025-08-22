@@ -53,8 +53,8 @@ export const useScrollAnimation = (options: ScrollAnimationOptions = {}) => {
 
   const ref = useRef(null)
   const isInView = useInView(ref, { 
-    threshold, 
-    triggerOnce 
+    amount: threshold, 
+    once: triggerOnce 
   })
   const controls = useAnimation()
 
